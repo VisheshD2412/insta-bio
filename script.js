@@ -78,9 +78,22 @@ function setupEntranceAnimation() {
   });
 }
 
+function setupProfileExpand() {
+  const profileCard = $('.profile-card');
+  if (profileCard) {
+    profileCard.addEventListener('click', () => {
+      // Only toggle expansion on mobile UI
+      if (window.innerWidth <= 768) {
+        profileCard.classList.toggle('expanded');
+      }
+    });
+  }
+}
+
 function init() {
   generateStars();
   setupEntranceAnimation();
+  setupProfileExpand();
 }
 
 document.addEventListener('DOMContentLoaded', init);
